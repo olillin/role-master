@@ -1,0 +1,25 @@
+{
+  "name": "role-master",
+  "version": "1.0.0",
+  "description": "Discord bot to create self-assignable roles",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olillin/role-master.git"
+  },
+  "keywords": [
+    "discord"
+  ],
+  "author": "Oli <oli@olillin.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/olillin/role-master/issues"
+  },
+  "homepage": "https://github.com/olillin/role-master#readme",
+  "dependencies": {
+    "discord.js": "^14.16.2"
+  }
+}
