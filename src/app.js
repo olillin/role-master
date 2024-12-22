@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, EmbedBuilder, PermissionsBitField, SnowflakeUtil, ActivityType, SlashCommandBuilder, DiscordAPIError } = require('discord.js')
+const { Client, EmbedBuilder, ActivityType, SlashCommandBuilder, DiscordAPIError, GatewayIntentBits } = require('discord.js')
 const {getRoles} = require('./database')
 
 const { DISCORD_TOKEN } = process.env
@@ -8,13 +8,12 @@ if (!DISCORD_TOKEN) {
 }
 
 const client = new Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessageReactions],
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildPresences],
+    
 })
 
 client.on('ready', () => {
     console.log('Bot is ready!')
-    client.user.setActivity(`Role managing championships ${new Date().getFullYear()}`, { type: ActivityType.Competing })
-
     // Create commands
     const createboard = new SlashCommandBuilder()
         .setName('createboard')
@@ -27,6 +26,7 @@ client.on('interactionCreate', interaction => {
     if (!interaction.isChatInputCommand()) return
 
     if (interaction.commandName == 'createboard') {
+        console.log(interaction.guild.presences.resolve(331768332032278530))
         const channel = client.channels.cache.get(interaction.channelId)
         const embed = createBoardEmbed(interaction.guildId)
         interaction.reply('Cool board!')

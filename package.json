@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/olillin/role-master#readme",
   "dependencies": {
-    "discord.js": "^14.16.2"
+    "discord.js": "^14.16.2",
+    "role-master": "file:"
   }
 }
